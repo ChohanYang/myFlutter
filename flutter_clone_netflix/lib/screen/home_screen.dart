@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_clone_netflix/model/model_movie.dart';
+import 'package:flutter_clone_netflix/widget/box_slider.dart';
+import 'package:flutter_clone_netflix/widget/carousel_slider.dart';
+import 'package:flutter_clone_netflix/widget/circle_slider.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreenState createState() => HomeScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class HomeScreenState extends State<HomeScreen> {
+class HomeScreen extends StatefulWidget {
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   List<Movie> movies = [
     Movie.fromMap({
       'title': '사랑의 불시착',
       'keyword': '사랑/로맨스/판타지',
       'poster': 'test_movie_1.png',
       'like': false
-    }),
+    }, reference: null),
     Movie.fromMap({
       'title': '사랑의 불시착',
       'keyword': '사랑/로맨스/판타지',
@@ -32,8 +40,6 @@ class HomeScreenState extends State<HomeScreen> {
       'like': false
     }),
   ];
-
-
   @override
   void initState() {
     super.initState();
@@ -41,7 +47,18 @@ class HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return TopBar();
+    return ListView(
+      children: <Widget>[
+        Stack(
+          children: <Widget>[
+            CarouselImage(movies: movies),
+            TopBar(),
+          ],
+        ),
+        CircleSlider(movies: movies),
+        BoxSlider(movies: movies),
+      ],
+    );
   }
 }
 
@@ -53,8 +70,11 @@ class TopBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          // Image.asset('assets/images/netflix_logo.png',fit: BoxFit.contain,height: 25,
-          // ),
+          Image.asset(
+            'images/bbongflix_logo.png',
+            fit: BoxFit.contain,
+            height: 25,
+          ),
           Container(
             padding: EdgeInsets.only(right: 1),
             child: Text(
@@ -72,7 +92,7 @@ class TopBar extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(right: 1),
             child: Text(
-              '내가찜한콘텐츠',
+              '내가 찜한 콘텐츠',
               style: TextStyle(fontSize: 14),
             ),
           ),
