@@ -11,15 +11,18 @@ class MoreScreen extends StatelessWidget {
               padding: EdgeInsets.only(top: 50),
               child: CircleAvatar(
                 radius: 100,
-                backgroundImage: AssetImage('images/redpanda.png'),
+                backgroundImage: AssetImage('images/bbongflix_logo.png'),
               ),
             ),
             Container(
               padding: EdgeInsets.only(top: 15),
-              child: Text('Chohan',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25,
-                  color: Colors.white),
-            ),
+              child: Text(
+                'TaeBbong',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                    color: Colors.white),
+              ),
             ),
             Container(
               padding: EdgeInsets.all(15),
@@ -27,19 +30,19 @@ class MoreScreen extends StatelessWidget {
               height: 5,
               color: Colors.red,
             ),
-            Container(
-              padding: EdgeInsets.all(10),
-              // // child: Linkify(
-              // //   onOpen: (link) async {
-              // //     if (await canLaunch(link.url)) {
-              // //       await launch(link.url);
-              // //     }
-              // //   },
-              //   text: "https://github.com/ChohanYang/myFlutter",
-              //   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              //   linkStyle: TextStyle(color: Colors.white),
-              // ),
-            ),
+            // Container(
+            //   padding: EdgeInsets.all(10),
+            //   child: Linkify(
+            //     onOpen: (link) async {
+            //       if (await canLaunch(link.url)) {
+            //         await launch(link.url);
+            //       }
+            //     },
+            //     text: "https://github.com/TaeBbong",
+            //     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            //     linkStyle: TextStyle(color: Colors.white),
+            //   ),
+            // ),
             Container(
               padding: EdgeInsets.all(10),
               child: FlatButton(

@@ -13,11 +13,8 @@ class Movie {
         poster = map['poster'],
         like = map['like'];
 
-  // Movie.fromSnapshot(DocumentSnapshot snapshot)
-  //     : this.fromMap(snapshot.data, reference: snapshot.reference);
-
-
-
+  Movie.fromSnapshot(DocumentSnapshot snapshot)
+      : this.fromMap(snapshot.data, reference: snapshot.reference);
 
   @override
   String toString() => "Movie<$title:$keyword>";

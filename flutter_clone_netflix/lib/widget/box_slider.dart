@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clone_netflix/model/model_movie.dart';
 import 'package:flutter_clone_netflix/screen/detail.screen.dart';
+
 class BoxSlider extends StatelessWidget {
   final List<Movie> movies;
   BoxSlider({required this.movies});
@@ -44,9 +45,10 @@ List<Widget> makeBoxImages(BuildContext context, List<Movie> movies) {
         padding: EdgeInsets.only(right: 10),
         child: Align(
           alignment: Alignment.centerLeft,
-          child: Image.asset('images/' + movies[i].poster),
+          child: Image.network((movies[i].poster),
         ),
       ),
+    ),
     ));
   }
   return results;

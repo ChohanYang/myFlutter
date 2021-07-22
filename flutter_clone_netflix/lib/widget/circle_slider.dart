@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_clone_netflix/model/model_movie.dart';
 import 'package:flutter_clone_netflix/screen/detail.screen.dart';
-
 class CircleSlider extends StatelessWidget {
   final List<Movie> movies;
   CircleSlider({required this.movies});
@@ -47,7 +46,7 @@ List<Widget> makeCircleImages(BuildContext context, List<Movie> movies) {
           child: Align(
             alignment: Alignment.centerLeft,
             child: CircleAvatar(
-              backgroundImage: AssetImage('images/' + movies[i].poster),
+              backgroundImage: NetworkImage(movies[i].poster),
               radius: 48,
             ),
           ),
